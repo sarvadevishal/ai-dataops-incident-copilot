@@ -1,157 +1,145 @@
 <div align="center">
-  <img src="https://img.shields.io/badge/Powered_by-Z.AI_GLM--5.1-0ea5e9?style=for-the-badge" alt="Powered by Z.AI" />
-  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
-  <img src="https://img.shields.io/badge/Express.js-404D59?style=for-the-badge" alt="Express.js" />
-  
-  <h1>🚀 AI DataOps Incident Copilot</h1>
-  <p><strong>Transforming raw ETL & SQL pipeline failures into actionable, executive-ready insights in seconds.</strong></p>
+  <img src="https://img.shields.io/badge/Powered_by-Z.AI_GLM--5.1-38bdf8?style=for-the-badge" alt="Z.AI" />
+  <img src="https://img.shields.io/badge/Hosted_on-Butterbase-818cf8?style=for-the-badge" alt="Butterbase" />
+  <img src="https://img.shields.io/badge/Frontend-React%20%2B%20Vite-10b981?style=for-the-badge&logo=react" alt="React" />
+
+  <h1>AI DataOps Incident Copilot</h1>
+  <p><strong>Turn raw ETL failures into full incident packages in seconds — not hours.</strong></p>
+
+  <a href="https://ai-dataops-incident-copilot.butterbase.dev"><img src="https://img.shields.io/badge/Live%20Demo-ai--dataops--incident--copilot.butterbase.dev-38bdf8?style=flat-square" /></a>
+  <a href="https://youtu.be/l8k16AjH5sE"><img src="https://img.shields.io/badge/Demo%20Video-YouTube-red?style=flat-square&logo=youtube" /></a>
+  <a href="https://docs.google.com/presentation/d/1YKm-Xf0rB1Fm_g-7SXOI-19K-Ly9ciVT/edit?usp=sharing"><img src="https://img.shields.io/badge/Pitch%20Deck-Google%20Slides-orange?style=flat-square&logo=google-slides" /></a>
+  <a href="https://butterbase.ai"><img src="https://img.shields.io/badge/AI%20Super%20Hackathon-0502-818cf8?style=flat-square" /></a>
 </div>
 
 ---
 
-## 📖 Overview
+## Live Links
 
-**AI DataOps Incident Copilot** is an elite, enterprise-grade application built specifically for modern Data Engineering and DevOps teams. 
-
-When a critical data pipeline fails (whether in Redshift, Snowflake, AWS Glue, Informatica, or Airflow), finding the root cause from raw, massive stack traces can take hours. This application leverages the power of **Z.AI (GLM-5.1)** to instantly diagnose the issue and generate a complete Incident Root Cause Analysis (RCA) package.
-
-## 🛑 The Problem
-
-Data engineering teams lose massive amounts of time during pipeline failures because:
-1. Raw logs are cryptic and hard to decipher.
-2. Root Cause Analysis (RCA) takes hours, delaying time-to-resolution (TTR).
-3. Jira incident updates are manual and tedious.
-4. Non-technical leadership and customers often lack clear, jargon-free updates regarding business impact.
-
-## 💡 The Solution
-
-This app reduces incident analysis time from **hours to seconds** by converting raw technical failures into:
-
-- 📊 **Executive Summary**
-- 🔍 **Root Cause Analysis (RCA)**
-- 💼 **Business Impact Assessment**
-- 🛠 **Fixed SQL or ETL Logic**
-- ✅ **Validation Query**
-- 🎫 **Jira-Ready Ticket Update**
-- 📢 **Customer-Facing Status Update**
-- 🛡️ **Prevention Checklist**
+| Resource | URL |
+|----------|-----|
+| **Live App** | https://ai-dataops-incident-copilot.butterbase.dev |
+| **Demo Video** | https://youtu.be/l8k16AjH5sE |
+| **Pitch Deck** | https://docs.google.com/presentation/d/1YKm-Xf0rB1Fm_g-7SXOI-19K-Ly9ciVT/edit?usp=sharing |
 
 ---
 
-## 🏗️ Architecture & Flow Diagram
+## The Problem
 
-The application uses a decoupled frontend/backend architecture to ensure security and scalability. 
+Data engineers waste **2–4 hours per ETL incident** manually:
+- Deciphering cryptic stack traces across Redshift, Glue, dbt, Airflow, Spark
+- Writing root cause analyses, SQL fixes, and validation queries from scratch
+- Formatting Jira tickets and customer-facing status updates
+- Keeping any audit trail of what happened and how it was fixed
 
-```mermaid
-sequenceDiagram
-    participant User as Data Engineer
-    participant UI as React Frontend (Vite)
-    participant API as Node/Express Backend
-    participant LLM as Z.AI (GLM-5.1)
+## The Solution
 
-    User->>UI: Pastes raw error log & selects Audience
-    UI->>API: POST /api/analyze (JSON payload)
-    Note over API: Validates payload & reads ZAI_API_KEY from .env
-    API->>LLM: Sends System Persona + User Prompt
-    Note over LLM: Analyzes stack trace & synthesizes RCA
-    LLM-->>API: Returns strictly formatted JSON
-    API-->>UI: Forwards JSON response
-    UI-->>User: Renders Premium Output Cards (SQL fixes, Jira text, etc.)
+Paste any raw error log → click **Analyze Incident** → get a **complete 11-part incident package in under 60 seconds**. Every analysis is automatically saved to a searchable, persistent audit log.
+
+---
+
+## Features
+
+### 11-Part Incident Package (One Click)
+1. Executive Summary
+2. Root Cause Analysis
+3. Business Impact Assessment
+4. Fixed SQL / ETL Logic
+5. Validation Queries
+6. Jira-Ready Update
+7. Customer Status Update
+8. Prevention Checklist
+9. Underlying Assumptions
+10. Confidence Level
+11. Recommended Next Steps
+
+### Persistent Audit Log
+- Every analysis automatically saved to PostgreSQL
+- Search by incident type or keyword
+- Click any past entry to instantly restore the full analysis
+- Delete entries, export history as JSON
+- Type badges: Redshift, AWS Glue, dbt, Airflow, Spark, BigQuery, Snowflake, Kafka
+
+### Supported Incident Types
+Amazon Redshift · AWS Glue · Apache Airflow · dbt · Apache Spark · Azure Data Factory · Google BigQuery · Snowflake · Apache Kafka · Custom
+
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| AI Model | [Z.AI GLM-5.1](https://api.z.ai) — frontier LLM for analysis |
+| Backend | [Butterbase](https://butterbase.ai) serverless functions (Deno/TypeScript) |
+| Database | Butterbase PostgreSQL — persistent audit log |
+| Frontend Hosting | Butterbase static frontend deployment |
+| Frontend | React 18 + Vite |
+
+---
+
+## Architecture
+
+```
+User Browser
+    │
+    ▼
+React + Vite Frontend (Butterbase CDN hosting)
+    │
+    ├── POST /fn/analyze      ──► Butterbase Function ──► Z.AI GLM-5.1 + PostgreSQL (save log)
+    ├── GET  /fn/get-logs     ──► Butterbase Function ──► PostgreSQL (fetch audit history)
+    └── DELETE /fn/delete-log ──► Butterbase Function ──► PostgreSQL (delete entry)
 ```
 
 ---
 
-## ⚙️ Tech Stack
+## Database Schema
 
-- **Frontend**: React 18, Vite, Vanilla CSS (Premium Enterprise Dashboard Design), Lucide Icons
-- **Backend**: Node.js, Express.js, CORS
-- **AI Integration**: OpenAI Node SDK pointing to `api.z.ai`
-- **Model**: `glm-5.1`
+```sql
+CREATE TABLE incident_logs (
+  id                UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  created_at        TIMESTAMPTZ DEFAULT NOW(),
+  incident_type     TEXT NOT NULL,
+  audience          TEXT NOT NULL,
+  issue_text        TEXT NOT NULL,
+  executive_summary TEXT,
+  confidence_level  TEXT,
+  result            JSONB NOT NULL
+);
+```
 
 ---
 
-## 🚀 Getting Started
-
-Follow these instructions to get the project up and running on your local machine.
+## Local Development
 
 ### Prerequisites
+- Node.js 18+
+- Z.AI API key
 
-- Node.js (v18 or higher recommended)
-- npm or yarn
-- A valid **Z.AI API Key**
-
-### 1. Setup the Backend
-
-The backend is responsible for securely communicating with the AI model. **Never expose your API keys in the frontend code.**
-
+### Frontend
 ```bash
-# 1. Navigate to the backend directory
-cd backend
-
-# 2. Install dependencies
-npm install
-
-# 3. Setup your environment variables
-cp .env.example .env
-```
-
-> **⚠️ CRITICAL SECURITY NOTE - API KEYS**
-> Open the newly created `backend/.env` file and paste your Z.AI API key:
-> `ZAI_API_KEY=your_actual_api_key_here`
-> 
-> *Do not commit this `.env` file to GitHub! The provided `.gitignore` is already configured to prevent this.*
-
-```bash
-# 4. Start the backend server
-npm start
-# The server will start on http://localhost:4000
-```
-
-### 2. Setup the Frontend
-
-Open a **new terminal window/tab** for the frontend.
-
-```bash
-# 1. Navigate to the frontend directory
 cd frontend
-
-# 2. Install dependencies
 npm install
-
-# 3. Start the Vite development server
 npm run dev
-# The UI will be available at http://localhost:5173
+# http://localhost:5173
 ```
 
----
+### Backend (original Express server)
+```bash
+cd backend
+npm install
+ZAI_API_KEY=your_key_here node index.js
+# http://localhost:4000
+```
 
-## 🎮 How to Use the App
-
-1. Open `http://localhost:5173` in your browser.
-2. Under the **"Try a Sample"** section, click on one of the pre-loaded failure scenarios (e.g., *Redshift numeric overflow*).
-3. Select your target audience (e.g., *Leadership*, *Engineering*, *Full Package*).
-4. Click **Analyze Incident**.
-5. Within seconds, the dashboard will populate with the RCA, Validation Queries, and Copy-Paste ready Jira/Customer updates!
-
----
-
-## 🛡️ Security & Best Practices
-
-- **Zero Client-Side Secrets**: The Z.AI API key is exclusively loaded into the Node.js backend environment via `dotenv`. The React frontend never sees the key.
-- **Prompt Engineering**: The backend uses a heavily engineered system prompt to force the LLM into returning strict, parseable JSON, preventing markdown leakage and ensuring stable UI rendering.
-- **CORS Configuration**: The backend currently uses wide-open CORS for local development. In a production scenario, configure `cors({ origin: 'your-production-domain.com' })`.
+> For the **Butterbase deployment**, backend logic lives in serverless functions — see `frontend/src/App.jsx` for the `API_BASE` constant pointing to the live Butterbase endpoint.
 
 ---
 
-## 🏆 Hackathon Pitch
+## Built By
 
-**"In today's data-driven world, a broken data pipeline doesn't just block analytics—it halts the business. Our team built the AI DataOps Incident Copilot to stop engineers from acting as human log-parsers. By turning cryptic stack traces into actionable Jira updates, fixed SQL, and executive summaries in seconds, we are giving data teams their time back and keeping stakeholders informed."**
+**Vishal Kumar Sarvade** — Data Engineer & AI Builder
 
----
+- LinkedIn: [linkedin.com/in/vishalkumarsarvade](https://www.linkedin.com/in/vishalkumarsarvade)
+- Email: sarvade1.vishalkumar@gmail.com
 
-## 🔮 Future Enhancements
-
-- [ ] **Direct Jira Integration**: Automatically create/update Jira tickets via the Jira REST API.
-- [ ] **Slack/Teams Webhooks**: Broadcast the customer-facing summary directly to an `#incidents` channel.
-- [ ] **Airflow/dbt Plugin**: Allow tools to push failures directly to the Copilot backend without manual copy-pasting.
-- [ ] **Historical Knowledge Base**: Vector DB integration to reference past identical failures and their fixes.
+*Submitted to the AI Super Hackathon 0502 — powered by [Butterbase](https://butterbase.ai) & [Z.AI](https://api.z.ai)*
