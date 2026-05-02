@@ -1,0 +1,19 @@
+{
+  "name": "ai-dataops-incident-copilot-backend",
+  "version": "1.0.0",
+  "description": "Backend for AI DataOps Incident Copilot",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "openai": "^4.44.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
